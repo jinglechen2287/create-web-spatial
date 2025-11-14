@@ -1,0 +1,34 @@
+{
+  "name": "create-web-spatial",
+  "version": "0.0.3",
+  "description": "",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "create-web-spatial": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts"
+  },
+  "keywords": [],
+  "author": "Jingle Chen",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@inquirer/input": "^4.3.1",
+    "@inquirer/select": "^4.4.2",
+    "@types/degit": "^2.8.6",
+    "degit": "^2.8.4",
+    "fs-extra": "^11.3.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
