@@ -83,6 +83,10 @@ async function setupProject(
 
   await applyProjectName(name, targetDir);
   await removeLicenseFile(targetDir);
+
+  console.log(`\nCreated successfully! Next steps:`);
+  console.log(`1. cd ${name}`);
+  console.log(`2. npm install`);
 }
 
 async function main() {
