@@ -4,7 +4,7 @@ This is a CLI tool to create a basic WebSpatial Project setup using Vite, TypeSc
 ## Create Project
 
 ``` bash
-npx create-web-spatial
+npx create-web-spatial@latest
 cd projectName
 ```
 
