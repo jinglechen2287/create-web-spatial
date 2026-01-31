@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import input from "@inquirer/input";
-// import select from "@inquirer/select";
+import select from "@inquirer/select";
 import path from "path";
 import fs from "fs-extra";
 import { fileURLToPath } from "url";
@@ -17,26 +17,15 @@ async function getProjectInfo() {
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-_]/g, "");
 
-  //   console.log("");
+  console.log("");
 
-  //   const framework = (await select({
-  //     message: "Framework?",
-  //     default: "react",
-  //     choices: [
-  //       { value: "react" },
-  //       { value: "vanilla - coming soon", disabled: true },
-  //     ],
-  //   })) as "react";
+  const language = await select<"typeScript" | "javaScript">({
+    message: "Project language?",
+    default: "typeScript",
+    choices: [{ value: "typeScript" }, { value: "javaScript" }],
+  });
 
-  //   console.log("");
-
-  //   const language = await select<"typeScript" | "javaScript">({
-  //     message: "Project language?",
-  //     default: "typeScript",
-  //     choices: [{ value: "typeScript" }, { value: "javaScript" }],
-  //   });
-
-  return { name, framework: "react" as const, language: "typeScript" as const };
+  return { name, framework: "react" as const, language };
 }
 
 function getTemplateUrl(
@@ -44,9 +33,10 @@ function getTemplateUrl(
   language: "typeScript" | "javaScript"
 ) {
   if (framework === "react" && language === "typeScript")
-    return "https://github.com/jinglechen2287/webspatial-starter.git";
-  else 
-    throw new Error(`Unsupported framework: ${framework} and language: ${language}`);
+    return "https://github.com/jinglechen2287/webspatial-starter-ts.git";
+  if (framework === "react" && language === "javaScript")
+    return "https://github.com/jinglechen2287/webspatial-starter-js.git";
+  throw new Error(`Unsupported framework: ${framework} and language: ${language}`);
 }
 
 async function applyProjectName(name: string, targetDir: string) {
@@ -91,7 +81,7 @@ async function setupProject(
 
 async function main() {
   console.log(
-    "create-web-spatial only supports TypeScript React template for now. More templates coming soon!\n"
+    "create-web-spatial only supports React templates for now. More templates coming soon!\n"
   );
   const { name, framework, language } = await getProjectInfo();
   await setupProject(name, framework, language);
