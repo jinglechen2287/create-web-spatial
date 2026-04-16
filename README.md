@@ -1,36 +1,42 @@
 # Create Web Spatial App
-This is a CLI tool to create a basic WebSpatial Project setup using Vite, TypeScript, and React (more options coming soon). 
+
+*Last updated: Thursday, April 16, 2026, WebSpatial 1.5.0 Compatible*
+
+This is a CLI tool to create a basic WebSpatial Project setup using Vite, TS/JS, and React.
 
 ## Create Project
 
-``` bash
+```bash
 npx create-web-spatial@latest
 cd projectName
 ```
 
 ## Installation
 
-``` bash
+```bash
 npm install
 cp .env.example .env.local
 ```
 
 ## Start Web Dev Server
 
-``` bash
+```bash
 npm run dev
 ```
 
 ## Start AVP Dev Server
-Open a new terminal 
 
-``` bash
+Open a new terminal
+
+```bash
 npm run start:avp
 ```
 
 ## Launch in the AVP Simulator
-Open a new terminal 
 
-``` bash
+Open a new terminal
+
+```bash
 npm run simulate:avp
 ```
+
